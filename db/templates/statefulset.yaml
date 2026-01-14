@@ -1,0 +1,43 @@
+apiVersion: {{ .Values.apiVersion }}
+kind: StatefulSet
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "label.instance" . | nindent 6 }}
+  serviceName: {{ .Values.name }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        {{- include "labels" . | nindent 8 }}
+        # test.app/name: test-app # common name for related pods
+        # test.app/component: database
+        # test.app/instance: test-app-db
+    spec:
+      containers:
+      - name: {{ .Values.name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        envFrom:
+        - secretRef:
+            name: {{ .Values.name }}
+        ports:
+        - containerPort: {{ .Values.service.port }}
+        {{- with .Values.volumeMounts }}
+        volumeMounts:
+          - name: {{ .name }}
+            mountPath: {{ .mountPath }}
+        {{- end }}
+        # volumeMounts:
+        # - name: pgdb-pvc
+        #   mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Values.volumeMounts.name }}
+    spec:
+      accessModes: {{ .Values.volumeMounts.accessModes }}
+      resources:
+        requests:
+          storage: {{ .Values.volumeMounts.storage }}

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+name: test-app-db
+namespace: test-app
+labels:
+  name: test-app-db
+  component: pgdb
+  instance: test-app-db
+
+image:
+  repository: postgres
+  tag: "16-alpine"
+  pullPolicy: IfNotPresent
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 5432
+  targetPort: 5432
+
+volumeMounts:
+  name: pgdb-pvc
+  mountPath: /var/lib/postgresql/data
+  accessModes: [ "ReadWriteOnce" ]
+  storage: 1Gi
+
+
+# Ingress (traefik) configuration
+ingress:
+  enabled: false
+  # setup in /var/lib/rancher/k3s/server/manifests
+  entryPoint: db 
+  match: PathPrefix(`/`)
+  kind: Rule

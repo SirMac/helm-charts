@@ -1,0 +1,18 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "label.component" . | nindent 4 }}
+spec:
+  entryPoints:
+    - {{ .Values.ingress.entryPoint }}
+  routes:
+  - match: {{ .Values.ingress.match }}
+    kind: {{ .Values.ingress.kind }}
+    services:
+    - name: {{ .Values.name }}
+      port: {{ .Values.service.port }}
+{{- end }}
