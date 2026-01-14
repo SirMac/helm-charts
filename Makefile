@@ -14,7 +14,7 @@ helm-install-backend:
 	docker build -t $(BACKEND_IMG_NAME):latest $(BACKEND_PATH)
 	docker save -o /var/lib/rancher/k3s/agent/images/$(BACKEND_IMG_NAME).tar $(BACKEND_IMG_NAME):latest
 	sleep 2
-# 	---------------------------------------------------
+# 	----------------------------------------------------
 # 	helm dependency update backend
 	helm install $(BACKEND_IMG_NAME) $(BACKEND_HELM_CHART) -n test-app --create-namespace -f values/backend-values.yaml
 helm-install-frontend:
