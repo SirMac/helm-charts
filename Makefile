@@ -67,9 +67,9 @@ helm-pkg:
 	helm package backend
 	helm package frontend
 	helm package db
-	mkdir -p charts
-	mv -f *.tgz charts/
-	cd charts && helm repo index .
+	mkdir -p docs
+	mv -f *.tgz docs/
+	cd docs && helm repo index .
 
 
 
