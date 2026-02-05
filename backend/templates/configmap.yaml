@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "label.component" . | nindent 4 }}
 data:
-{{- range $key, $value := .Values.cofigmap }}
+{{- range $key, $value := .Values.configmap }}
   {{ $key }}: {{ $value | quote }}
 {{- end  }}
     

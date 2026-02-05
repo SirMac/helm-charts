@@ -59,9 +59,9 @@ autoscaling:
   maxReplicas: 5
   targetCPUUtilizationPercentage: 50
 
-configmap:
-  CLIENT_IP: "http://192.168.85.128" # change k3s node IP as needed
-  CLIENT_PORT: "32000" # NodePort of client service
+configmap:  # change k3s node IP as needed
+  CLIENT_IP: "http://192.168.85.128" 
+  CLIENT_PORT: "32000" 
   OTEL_EXPORTER_OTLP_ENDPOINT: "http://alloy.monitoring.svc.cluster.local:4318"
   OTEL_SERVICE_NAME: "otel-go-service"
   OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf"
