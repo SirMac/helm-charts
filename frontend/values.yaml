@@ -45,5 +45,12 @@ autoscaling:
   enabled: false
   kind: Deployment
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 10
   targetCPUUtilizationPercentage: 50
+
+configmap:
+  SERVER_IP: "http://192.168.85.128" # change k3s node IP as needed
+  SERVER_PORT: "32000" # NodePort of client service
+
+secret: # secrets must be base64 encoded
+  TOKEN: "cG9zdGdyZXM="

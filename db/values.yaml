@@ -31,3 +31,8 @@ ingress:
   entryPoint: db 
   match: PathPrefix(`/`)
   kind: Rule
+
+secret:
+  POSTGRES_DB: "dGVzdF9kYg=="
+  POSTGRES_USER: "cG9zdGdyZXM="
+  POSTGRES_PASSWORD: "MTIz"

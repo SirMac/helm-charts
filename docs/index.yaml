@@ -3,9 +3,9 @@ entries:
   backend:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-05T19:31:12.903415Z"
+    created: "2026-02-05T14:47:45.787789999-05:00"
     description: A Helm chart for local k3s
-    digest: db29e3490729d0f3290515f99e9fc4ddf3806788366d1efdaacca2ed7f620619
+    digest: fdb8e726943c73e7d4865458f6f29f319c57714e9196170aa6257bc6b6d7a797
     name: backend
     type: application
     urls:
@@ -14,9 +14,9 @@ entries:
   db:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-05T19:31:12.903575Z"
+    created: "2026-02-05T14:47:45.787955128-05:00"
     description: A Helm chart for local k3s
-    digest: 11ce4b5b8fe60f12dc31fa64f239ab8740944767112d7937709902b28bb43d96
+    digest: 493e790cba61b0ee80cad0d41c380d5e3521f687029c3fe97871443114c9696c
     name: db
     type: application
     urls:
@@ -25,12 +25,12 @@ entries:
   frontend:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-05T19:31:12.903756Z"
+    created: "2026-02-05T14:47:45.78813734-05:00"
     description: A Helm chart for local k3s
-    digest: a46827f8e77a59d7f784ddf74912d7c2dbde256db929e707577e5d6a39b014d4
+    digest: 2a42b3bd1681baf1166065f40584dc72dc3532b8f98c9f90dceb80b71d10351d
     name: frontend
     type: application
     urls:
     - frontend-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-05T19:31:12.902634Z"
+generated: "2026-02-05T14:47:45.787389323-05:00"
